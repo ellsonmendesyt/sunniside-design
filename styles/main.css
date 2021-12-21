@@ -1,4 +1,6 @@
-
+/* 
+ RESETSS
+*/
 *{
     box-sizing: border-box;
    
@@ -16,9 +18,8 @@ body{
 
 
 
-.open{
-    
-
+:root{
+    --yellow:hsl(51, 100%, 49%);
 }
 
 
@@ -31,8 +32,18 @@ HEADER
 */
 
 header{
-    background-color: skyblue;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    background-color: #3DBEFF;
+    height: 30rem;
+
+    background-image: url('../images/desktop/image-header.jpg') ;
+    background-position: 50% 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .menu{
     margin: 0;
@@ -43,16 +54,19 @@ header{
 
 
 .container{
-    max-width:1440px;
+    max-width:1200px;
 }
 
 .navbar{
+    /* outline: 1px solid lime; */
+    width: 100%;
     padding: .5rem;
     /* padding-left:1rem; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    transition: all .3s;
 }
 
 .navbar-menu{
@@ -74,9 +88,7 @@ header{
     font-family: 'Barlow', sans-serif;
     color: #fff;
     text-decoration: none;
-    /* font-size: 18px; */
     padding: .4rem 1.2rem;
-
     border-radius: 14px;
     transition: 100ms;
     
@@ -99,27 +111,210 @@ header{
 
 
 
-.navbar-menu.open{
+
+.mobile-menu{
     display: flex;
     position: absolute;
     top:4rem;
     z-index: 999;
     background-color: #fff;
     flex-direction: column;
+    list-style: none;
    left: 2rem;
-   right: 3rem;
+   right: 2rem;
    padding: 3rem;
    justify-content: center;
    align-items: center;
    gap: 2rem;
+   -webkit-animation: closeAnime 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+   animation: closeAnim 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
 
-  
-    animation: scale-in-tr 0.02s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-   
+.mobile-menu .menu-link{
+    color:black;
+    font-family: 'Barlow', sans-serif;
+    transition: all 1.2s;
+    padding: .5rem 1.4rem;
+    
+}
+.mobile-menu .menu-link:hover{
+    transition: all .8s;
+    background-color: var(--yellow);
+    text-transform: uppercase;
 }
 
 
-  @keyframes scale-in-tr {
+
+
+
+
+.lead{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 4rem;
+   margin-top: 3rem;
+   color: #fff;
+   text-align: center;
+}
+
+.arrow-down{
+    /* position: relative; */
+    margin-top: 2rem;
+    /* position: absolute; */
+    animation: bounce 2s infinite;
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+.mobile-menu::before{
+    content: "";
+    height: 0px;
+    width: 0px;
+    /* background-color: red; */
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    border-right: 14px solid white;
+    border-bottom: 14px solid white;
+    border-left: 14px solid transparent;
+    border-top: 14px solid transparent;
+}
+
+.navbar-menu.open .menu-link{
+    
+    color:black;
+    /* font-size: 2rem; */
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+ BREAKPOINTS MOBILE AND TABLET
+*/
+
+@media (min-width:375px){
+
+/* todo */
+}
+
+
+@media (min-width:768px){
+    .navbar-menu{
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        height: 2rem;
+    }
+
+    .hamburger-button{
+        display: none;
+       
+    }
+
+    .arrow-down{
+        margin-top: 4rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*========================
+ANIMAÇÕES
+==========================*/
+
+.open {
+	-webkit-animation: openAnim 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: openAnim 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes openAnim {
     0% {
       -webkit-transform: scale(0);
               transform: scale(0);
@@ -135,73 +330,67 @@ header{
       opacity: 1;
     }
   }
-
-.navbar-menu.open::before{
-    content: "";
-    height: 0px;
-    width: 0px;
-    /* background-color: red; */
-    position: absolute;
-    top: -30px;
-    right: 0px;
-    border-right: 15px solid white;
-    border-bottom: 15px solid white;
-    border-left: 15px solid transparent;
-    border-top: 15px solid transparent;
-}
-
-.navbar-menu.open .menu-link{
-    
-    color:black;
-    /* font-size: 2rem; */
-    
-}
-
-@media (min-width:375px){
-
-
-    /* .menu-link{
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-        padding: .4rem 1.2rem;
-        line-height: 1.4rem;
-        border-radius: 14px;
-        transition: .4s ease-in-out;
-    } */
-
-}
-
-
-@media (min-width:768px){
-    .navbar-menu{
-        display: flex;
-        gap: 1rem;
-        list-style: none;
-        /* height: 2rem; */
+@keyframes openAnim {
+    0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 100% -20%;
+                transform-origin: 100% -20%;
+        opacity: 1;
     }
-
-    .hamburger-button{
-        display: none;
-       
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: 100% -20%;
+                transform-origin: 100% -20%;
+        opacity: 1;
     }
 }
+  
+
+
+/* Close */
+
+.close {
+	-webkit-animation: closeAnime 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	animation: closeAnim 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ @-webkit-keyframes closeAnim {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+              -webkit-transform-origin: 100% -20%;
+              transform-origin: 100% -20%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+              -webkit-transform-origin: 100% -20%;
+              transform-origin: 100% -20%;
+      opacity: 1;
+    }
+  }
+  @keyframes closeAnim {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+              -webkit-transform-origin: 100% -20%;
+              transform-origin: 100% -20%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+              -webkit-transform-origin: 100% -20%;
+              transform-origin: 100% -20%;
+      opacity: 1;
+    }
+  }
+  
 
 
 

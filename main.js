@@ -1,20 +1,20 @@
 const hambuergerBtn=document.querySelector(".hamburger-button");
-const menu=document.querySelector(".navbar-menu");
+const mobmenu=document.querySelector(".mobile-menu");
 
 
-console.log(menu)
+console.log(mobmenu)
 
 
 
 hambuergerBtn.addEventListener("click", ()=>{
-    menu.classList.toggle('open');
+    mobmenu.classList.toggle('open');
    
 })
 
 
 window.addEventListener('resize',()=>{
-    if(menu && menu.classList.contains('open')){
-        menu.classList.remove('open');
+    if(mobmenu && mobmenu.classList.contains('open')){
+        mobmenu.classList.remove('open');
     }else{
         console.log('sem classe')
     }
