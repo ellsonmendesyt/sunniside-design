@@ -38,8 +38,8 @@ header{
 
 
     background-color: #3DBEFF;
-    height: 30rem;
-
+    /* height: 35rem; */
+   height: 100vh;
     background-image: url('../images/desktop/image-header.jpg') ;
     background-position: 50% 100%;
     background-size: contain;
@@ -151,15 +151,16 @@ header{
 .lead{
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 4rem;
-   margin-top: 3rem;
+    font-size: 2rem;
+   margin-top: 8rem;
    color: #fff;
    text-align: center;
+   text-transform: uppercase;
 }
 
 .arrow-down{
     /* position: relative; */
-    margin-top: 2rem;
+    margin-top: 10rem;
     /* position: absolute; */
     animation: bounce 2s infinite;
 }
@@ -200,19 +201,72 @@ header{
 }
 
 
+/* 
+LAYOUT ALTERNADO TEXTO IMAGEM
+*/
 
 
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 0px;
+    padding: 0;
+    margin: 0;
+}
 
 
+.grid-item{
+    /* margin: auto; */
+
+    place-items: center;
+    position: relative;
+   
+    max-height: 450px;
+}
+
+.grid-item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+   
+}
+
+.grid-item.design{
+    background-position: 50% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.grid-item.design{
+    background-image: url('../images/desktop/image-graphic-design.jpg');
+
+}
+.grid-item.photo{
+    background-image: url('../images/desktop/image-photography.jpg');
+
+}
 
 
+.title,.under-title{
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+}
 
 
+.under-title{
+  /* margin-top: 30rem; */
+  /* justify-self: ; */
+}
 
+.sub-desc{
 
-
-
-
+    padding: 4rem;
+    /* margin-bottom: 3rem; */
+   
+}
 
 
 
@@ -265,9 +319,12 @@ header{
  BREAKPOINTS MOBILE AND TABLET
 */
 
-@media (min-width:375px){
-
-/* todo */
+@media (min-width:600px){
+    .grid-container{
+       
+        grid-template-columns: repeat(2,1fr);
+    }
+  
 }
 
 
@@ -285,13 +342,24 @@ header{
     }
 
     .arrow-down{
-        margin-top: 4rem;
+        margin-top: 3rem;
     }
+
+    .lead{
+        font-size: 3rem;
+    }
+
+    /* .grid-container{
+       
+        grid-template-columns: repeat(2,1fr);
+    } */
 }
 
 
 
-
+.content{
+    padding: 3rem;
+}
 
 
 

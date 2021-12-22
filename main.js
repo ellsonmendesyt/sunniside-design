@@ -19,3 +19,10 @@ window.addEventListener('resize',()=>{
         console.log('sem classe')
     }
 })
+// document.addEventListener('click',()=>{
+//     if(mobmenu && mobmenu.classList.contains('open')){
+//         mobmenu.classList.remove('open');
+//     }else{
+//         console.log('sem classe')
+//     }
+// },true)
